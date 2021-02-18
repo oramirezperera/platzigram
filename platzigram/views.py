@@ -6,6 +6,7 @@ from django.http import JsonResponse
 
 # utilities
 from datetime import datetime
+import json
 
 def hello_world(request):
     """returns a greeting"""
@@ -15,7 +16,11 @@ def hello_world(request):
 
 def hi(request):
     """hi"""
-    numbers = sorted([int(number) for number in request.GET['numbers'].split(',')])
-
-    return JsonResponse(numbers, safe=False)
-
+    numbers = [int(i) for i in request.GET['numbers'].split(',')] # list comprehension para convertir la lista en numeros
+    sorted_int = sorted(numbers) 
+    data = {
+        'status': 'ok',
+        'numbers': sorted_int,
+        'message': 'integers sorted successfully',
+    }
+    return HttpResponse(json.dumps(data, indent=4), content_type='application/json')
