@@ -14,8 +14,8 @@ def hello_world(request):
     return HttpResponse(f'Hello, World! The datetime of the server is {now}')
 
 
-def hi(request):
-    """hi"""
+def sort_integers(request):
+    """returns a json response with sorted integers"""
     numbers = [int(i) for i in request.GET['numbers'].split(',')] # list comprehension para convertir la lista en numeros
     sorted_int = sorted(numbers) 
     data = {
@@ -24,3 +24,14 @@ def hi(request):
         'message': 'integers sorted successfully',
     }
     return HttpResponse(json.dumps(data, indent=4), content_type='application/json')
+
+
+def say_hi(request, name, age):
+    """Returns a greeting"""
+
+    if age < 12:
+        message = f'sorry {name} you are not allowed to be here'
+    else:
+        message = f'Hi {name}! Welcome to Platzigram'
+    
+    return HttpResponse(message)
