@@ -17,7 +17,16 @@ from django.db.utils import IntegrityError
 @login_required
 def update_profile(request):
     """ Update a user's profile view """
-    return render(request, 'users/update_profile.html')
+    profile = request.user.profile
+
+    return render(
+        request=request,
+        template_name='users/update_profile.html',
+        context={
+            'profile': profile,
+            'user': request.user
+        }
+    )
 
 
 def login_view(request):
@@ -29,7 +38,7 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user:
             login(request, user)
-            return redirect('feed')   
+            return redirect('feed')
         else:
             return render(request, 'users/login.html', {'error': 'Invalid username and/or password'})
 
