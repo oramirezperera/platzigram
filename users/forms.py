@@ -12,14 +12,14 @@ class SignupForm(forms.Form):
     """ Sign up form """
 
     username = forms.CharField(
-                label=False,
-                min_length=4,
-                max_length=50,
-                widget=forms.TextInput(attrs={
-                                        'placeholder': 'username',
-                                        'class': 'form-control',
-                                        'required': True
-                            }))
+        label=False,
+        min_length=4,
+        max_length=50,
+        widget=forms.TextInput(attrs={
+                                'placeholder': 'username',
+                                'class': 'form-control',
+                                'required': True
+        }))
 
     password = forms.CharField(
         label=False,
@@ -29,6 +29,7 @@ class SignupForm(forms.Form):
                                         'class': 'form-control',
                                         'required': True
         }))
+
     password_confirmation = forms.CharField(
         label=False,
         max_length=70,
@@ -47,6 +48,7 @@ class SignupForm(forms.Form):
                                 'class': 'form-control',
                                 'required': True
         }))
+
     last_name = forms.CharField(
         label=False,
         min_length=2,
