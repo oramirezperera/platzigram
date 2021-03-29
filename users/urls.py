@@ -6,12 +6,6 @@ from django.urls import path
 from users import views
 
 urlpatterns = [
-    # Posts
-    path(
-        route='profile/<str:username>/',
-        view=views.UserDetailView.as_view(),
-        name='detail'
-    ),
 
     # Management
     path(
@@ -33,4 +27,14 @@ urlpatterns = [
         route='me/profile/',
         view=views.update_profile,
         name='update_profile'),
+
+    # Posts
+
+    path(
+        route='profile/<str:username>/',
+        view=views.UserDetailView.as_view(),
+        name='detail'
+    ),
+
+
 ]
