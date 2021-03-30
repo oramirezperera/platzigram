@@ -34,25 +34,6 @@ class UserDetailView(LoginRequiredMixin, DetailView):
         return context
 
 
-class PostDetailView(LoginRequiredMixin, DetailView):
-    """ Specific Post Detail """
-
-    template_name = 'users/post_detail.html'
-    slug_field = 'id'
-    slug_url_kwarg = 'id'
-    queryset = Posts.objects.all()
-    context_object_name = 'post'
-
-    def get_context_data(self, **kwargs):
-        """ Adds user's posts to content """
-
-        context = super().get_context_data(**kwargs)
-        post = self.get_object()
-        context['posts'] = Posts.objects.get(id=post.id)
-
-        return context
-
-
 @login_required
 def update_profile(request):
     """ Update a user's profile view """

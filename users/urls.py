@@ -36,10 +36,4 @@ urlpatterns = [
         name='detail'
     ),
 
-    path(
-        route='<str:username>/<int:id>/',
-        view=views.PostDetailView.as_view(),
-        name='post_detail'
-    ),
-
 ]
