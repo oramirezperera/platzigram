@@ -18,4 +18,5 @@ urlpatterns = [
         view=views.create_post,
         name='create'
     ),
+
 ]
