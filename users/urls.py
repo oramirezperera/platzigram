@@ -20,7 +20,7 @@ urlpatterns = [
 
     path(
         route='signup/',
-        view=views.signup,
+        view=views.SignUpView.as_view(),
         name='signup'),
 
     path(
