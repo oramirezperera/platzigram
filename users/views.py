@@ -69,6 +69,7 @@ class LoginView(auth_views.LoginView):
     """ Login View """
 
     template_name = 'users/login.html'
+    redirect_authenticated_user = True
 
 
 class LogoutView(LoginRequiredMixin, auth_views.LogoutView):
