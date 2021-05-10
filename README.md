@@ -42,7 +42,7 @@ $ python3 manage.py runserver
 
 This project is licensed under the MIT License - see the LICENSE.md file for details
 
-## Thanks :blue-heart:
+## Thanks :blue_heart:
 
 - Thanks for viewing this project.
 - If you have any question or suggestion contact me.
